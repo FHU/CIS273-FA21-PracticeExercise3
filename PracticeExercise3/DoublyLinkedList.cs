@@ -22,10 +22,29 @@ namespace PracticeExercise3
         }
     }
 
-    public class DoublyLinkedList: IList<T>
+    public class DoublyLinkedList<T>: IList<T>
     {
+        public DoublyLinkedListNode<T> Head { get; set; }
+        public DoublyLinkedListNode<T> Tail { get; set; }
+
         public DoublyLinkedList()
         {
+        }
+
+        public int Length
+        {
+            get
+            {
+                int count = 0;
+                var currentNode = Head;
+                while (currentNode != null)
+                {
+                    count++;
+                    currentNode = currentNode.Next;
+                }
+
+                return count;
+            }
         }
     }
 }
